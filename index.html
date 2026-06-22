@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SENORIF interactif</title>
+<style>
+:root {
+  --bg:#ffffff;
+  --card:#c5d8e8;
+  --text:#233044;
+  --muted:#617086;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.wrapper{max-width:1180px;margin:0 auto;padding:34px 22px 70px}
+header{text-align:center;margin-bottom:30px}
+h1{color:#4868a8;font-size:clamp(34px,5vw,58px);font-weight:900}
+.subtitle{color:#617086;font-size:17px;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:start}
+.chapter summary{list-style:none;position:relative;width:100%;min-height:126px;border:0;border-radius:0 18px 18px 0;background:var(--card);color:#6d82a5;font-size:22px;font-weight:800;line-height:1.15;padding:18px 18px 18px 28px;cursor:pointer;text-align:center;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(31,50,90,.06);overflow:hidden}
+.chapter summary::-webkit-details-marker{display:none}
+.chapter summary::before{content:"";position:absolute;left:0;top:0;bottom:0;width:24px;background:var(--accent)}
+.chapter[open] summary{background:color-mix(in srgb, var(--accent) 78%, white);color:white}
+.chapter[open] summary::before{background:var(--accent)}
+.panel{background:color-mix(in srgb, var(--accent) 84%, #233044);color:white;border-radius:0 0 18px 18px;padding:28px 26px 32px;margin-top:10px;box-shadow:0 10px 24px rgba(31,50,90,.13)}
+.arrow{width:46px;height:34px;margin:0 0 18px 12px;position:relative}
+.arrow::before,.arrow::after{content:"";position:absolute;width:34px;height:7px;background:#e5efff;border-radius:999px;top:14px}
+.arrow::before{transform:rotate(-45deg);left:0}
+.arrow::after{transform:rotate(45deg);left:21px}
+.panel h2{font-size:26px;margin-bottom:18px;color:#eef5ff}
+.panel ul{list-style:none}
+.panel li{margin:8px 0}
+.subchapter-btn{width:100%;border:0;background:transparent;color:#eef5ff;display:flex;gap:12px;align-items:flex-start;text-align:left;font-size:17px;font-weight:800;cursor:pointer;padding:4px 0;text-decoration:none}
+.subchapter-btn:hover span:last-child{text-decoration:underline}
+.chev{font-size:23px;line-height:1;color:#d9e8ff;font-weight:300}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.chapter summary{font-size:20px;min-height:112px}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.chapter summary{min-height:92px}.panel h2{font-size:24px}.subchapter-btn{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+<header>
+<h1>SENORIF interactif</h1>
+<p class="subtitle">Cancers et pathologies du sein — navigation par chapitres</p>
+</header>
+<div class="grid">
+
+<details class="chapter" style="--accent:#5570AE">
+  <summary>Généralités</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Généralités</h2>
+    <ul><li><a class="subchapter-btn" href="generalites/principes-generaux.html"><span class="chev">›</span><span>Principes généraux</span></a></li>
+<li><a class="subchapter-btn" href="generalites/multidisciplinarite.html"><span class="chev">›</span><span>Multidisciplinarité</span></a></li>
+<li><a class="subchapter-btn" href="generalites/abreviations.html"><span class="chev">›</span><span>Abréviations</span></a></li>
+<li><a class="subchapter-btn" href="generalites/stades-ptnm-ajcc-2018.html"><span class="chev">›</span><span>Stades pTNM/AJCC 2018</span></a></li>
+<li><a class="subchapter-btn" href="generalites/tumeur-primaire-t.html"><span class="chev">›</span><span>Tumeur primaire (T)</span></a></li>
+<li><a class="subchapter-btn" href="generalites/ganglions-regionaux-n.html"><span class="chev">›</span><span>Ganglions régionaux (N)</span></a></li>
+<li><a class="subchapter-btn" href="generalites/metastases-m.html"><span class="chev">›</span><span>Métastases (M)</span></a></li>
+<li><a class="subchapter-btn" href="generalites/stades-cliniques-pathologiques-ajcc-2017-v8.html"><span class="chev">›</span><span>Stades cliniques/pathologiques AJCC 2017 v8</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#6FAE93">
+  <summary>Génétique, dépistage, prévention</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Génétique, dépistage, prévention</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Oncogénétique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Indications de consultation d’oncogénétique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Indications urgentes</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Dépistage chez les femmes à haut risque</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Suivi mammaire des femmes à risque très élevé</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Prévention du cancer du sein</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Prévention chirurgicale</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#9A88C1">
+  <summary>Diagnostic et bilan des lésions du sein</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Diagnostic et bilan des lésions du sein</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Imagerie et biopsies</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Classification BI-RADS ACR</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Modalités diagnostiques des lésions du sein et de l’aisselle</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Ponctions et biopsies radio ou échoguidées</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Indications en fonction de la classification BI-RADS ACR</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Conduite à tenir et suivi ultérieur après biopsies percutanées</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Focus sur les ganglions</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Repérage pré-opératoire</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#B6689D">
+  <summary>Anatomopathologie</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Anatomopathologie</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Examen extemporané</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Prise en charge des biopsies</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Prise en charge des pièces opératoires</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Immunohistochimie</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Récepteurs hormonaux RE et RP</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Ki67</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>HER2</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Phase précoce : biomarqueurs et tests génomiques</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#C25D6F">
+  <summary>Bilan d’extension</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Bilan d’extension</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Bilan local</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Bilan à distance</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Bilan médical</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Règles pré-thérapeutiques</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#9AAA8E">
+  <summary>Génomique tumorale</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Génomique tumorale</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Cancer du sein : phase précoce</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Cancer du sein : phase avancée/métastatique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Screening théranostique recommandé</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Screening théranostique optionnel</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#394B83">
+  <summary>Lésions de potentiel malin incertain (B3)</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Lésions de potentiel malin incertain (B3)</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Définition</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Prise en charge</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#504B82">
+  <summary>Lésions fibro-épithéliales</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Lésions fibro-épithéliales</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Pathologie et conduite à tenir</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Tumeurs phyllodes</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#C65F70">
+  <summary>Lésions bénignes</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Lésions bénignes</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Lésions bénignes</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#5570AE">
+  <summary>Carcinome in situ (CIS)</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Carcinome in situ (CIS)</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Chirurgie</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Tumorectomie et lésions intracanalaires</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Ganglion sentinelle et lésions intracanalaires</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Mastectomie totale et lésions intracanalaires</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Radiothérapie des carcinomes in situ</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Indications</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Doses et fractionnement</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#6FAE93">
+  <summary>Cancers infiltrants : traitements médicaux néoadjuvants</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Cancers infiltrants : traitements médicaux néoadjuvants</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Indications</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Imagerie en situation néoadjuvante</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Bilan initial</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Bilan en cours de traitement</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Cancers du sein RH+ : traitements néoadjuvants</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Cancers du sein HER2+ : traitement néoadjuvant</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Cancers du sein triple négatifs : traitement néoadjuvant</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#9A88C1">
+  <summary>Cancers infiltrants : chirurgie</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Cancers infiltrants : chirurgie</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Consultation pré-opératoire</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Chirurgie du sein</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Ganglion sentinelle</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Curage axillaire</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Management axillaire en cas de chimiothérapie néoadjuvante</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Arbres de décision pour la chirurgie ganglionnaire</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#B6689D">
+  <summary>Récidives locales (RL)</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Récidives locales (RL)</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Bilan</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Chirurgie</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Traitement médical adjuvant</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Radiothérapie</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#C25D6F">
+  <summary>Chirurgie plastique et reconstructrice</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Chirurgie plastique et reconstructrice</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Reconstruction mammaire immédiate</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Reconstruction immédiate et traitements adjuvants</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Conservation de la plaque aréolo-mamelonnaire</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Lipofilling</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Séquence inversée</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#9AAA8E">
+  <summary>Cancers infiltrants : traitements médicaux adjuvants</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Cancers infiltrants : traitements médicaux adjuvants</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Généralités sur le traitement systémique adjuvant</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Chimiothérapie</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Blocage HER2</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Signature génomique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Hormonothérapie adjuvante</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Inhibiteur de PARP</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Inhibiteurs CDK4/6</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Inhibiteurs de la résorption osseuse</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#394B83">
+  <summary>Radiothérapie des formes infiltrantes</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Radiothérapie des formes infiltrantes</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Indications après chirurgie première</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Définition des volumes et fractionnement</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Dose et fractionnement</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Technique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Contraintes de dose</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Association radiothérapie et traitements systémiques</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Radiothérapie après traitement systémique néoadjuvant</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#504B82">
+  <summary>Formes particulières</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Formes particulières</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Homme</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Femmes âgées</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Cancer du sein pendant la grossesse</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Formes histologiques rares</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Cancers lobulaires infiltrants</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#C65F70">
+  <summary>Formes localement avancées</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Formes localement avancées</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Présentation N3 initiale</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Cancer du sein inflammatoire</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#5570AE">
+  <summary>Soins de support</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Soins de support</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Prévention des effets secondaires de la chimiothérapie</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Facteurs de croissance</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Santé osseuse</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Effets indésirables de l’hormonothérapie</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Douleurs</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Sécheresse vulvo-vaginale</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Bouffées de chaleur</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Nutrition</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Activité physique adaptée</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Soutien psycho-oncologique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Risque thrombotique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Fertilité</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Grossesse après cancer du sein</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Difficultés de la vie sexuelle</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Contraception</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Séquelles après traitement</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Éducation thérapeutique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Soins palliatifs précoces</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Soins complémentaires</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#6FAE93">
+  <summary>Surveillance après la phase précoce</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Surveillance après la phase précoce</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Surveillance après la phase précoce</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#9A88C1">
+  <summary>Cancer du sein avancé</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Cancer du sein avancé</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Principes généraux</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Bilan pré-thérapeutique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Biomarqueurs pronostiques et prédictifs</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Biopsie d’une métastase</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Critères pour le choix du traitement en phase métastatique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Cancers du sein métastatiques HER2+</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Cancers du sein métastatiques RE+ HER2-</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Cancers du sein triple négatifs</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Maladies osseuses</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Métastases osseuses</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Lésions du SNC</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#B6689D">
+  <summary>Pharmacologie des anti-tumoraux et STP</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Pharmacologie des anti-tumoraux et STP</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Pharmacologie des anti-tumoraux</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Suivi thérapeutique pharmacologique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Interactions médicamenteuses</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Pharmacovigilance</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Sites utiles</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#C25D6F">
+  <summary>Références bibliographiques</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Références bibliographiques</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Références bibliographiques</span></a></li></ul>
+  </div>
+</details>
+<details class="chapter" style="--accent:#9AAA8E">
+  <summary>Annexes</summary>
+  <div class="panel">
+    <div class="arrow"></div>
+    <h2>Annexes</h2>
+    <ul><li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Annexe 1 : note d’information BRCA tumoral</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Annexe 2 : biomarqueurs tumoraux d’intérêt clinique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Annexe 3 : formes rares de carcinomes infiltrants</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Annexe 4 : carcinomes lobulaires infiltrants</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Annexe 5 : lésions bénignes</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Annexe 6 : Groupe PathSein</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Annexe 7 : pathologie numérique</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Annexe 8 : checklists des CR de pathologie</span></a></li>
+<li><a class="subchapter-btn" href="#"><span class="chev">›</span><span>Annexe 9 : pharmacologie des traitements oraux et ADC</span></a></li></ul>
+  </div>
+</details>
+</div>
+</div>
+</body>
+</html>
