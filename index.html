@@ -569,8 +569,8 @@ function openSubchapter(chapterIndex, subIndex) {
   document.getElementById("article-chapter").textContent = chapter.titre;
   document.getElementById("article-title").textContent = sub.titre;
   document.getElementById("article-pages").textContent = pageLabel(sub);
-  document.getElementById("article-content").innerHTML = formatContent(sub.contenu_texte || "");
-  window.scrollTo(0, 0);
+  document.getElementById("article-content").innerHTML =
+  sub.contenu_html ? sub.contenu_html : formatContent(sub.contenu_texte || "");
 }
 
 function goHome() {
