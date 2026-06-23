@@ -1,7 +1,7 @@
 {
   "type": "question",
   "titre": "Après l’analyse histologique et la mammographie postopératoire si besoin, les marges sont-elles ≥ 2 mm et sans microcalcifications résiduelles ?",
-  "aide": "MCC = microcalcifications. Cette question correspond au premier losange de l’arbre.",
+  "aide": "MCC = microcalcifications.",
   "choix": {
     "Oui": {
       "type": "resultat",
