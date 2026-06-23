@@ -1,0 +1,72 @@
+{
+  "type": "question",
+  "titre": "Après l’analyse histologique et la mammographie postopératoire si besoin, les marges sont-elles ≥ 2 mm et sans microcalcifications résiduelles ?",
+  "aide": "MCC = microcalcifications. Cette question correspond au premier losange de l’arbre.",
+  "choix": {
+    "Oui": {
+      "type": "resultat",
+      "titre": "Radiothérapie du sein",
+      "recommandations": [
+        "Radiothérapie du sein.",
+        "Radiothérapie mammaire en hypofractionné modéré recommandée."
+      ]
+    },
+    "Non": {
+      "type": "question",
+      "titre": "Une reprise chirurgicale conservatrice est-elle possible avec obtention de marges ≥ 2 mm ?",
+      "choix": {
+        "Oui": {
+          "type": "resultat",
+          "titre": "Reprise chirurgicale conservatrice puis radiothérapie du sein",
+          "recommandations": [
+            "Reprise chirurgicale conservatrice avec marges ≥ 2 mm.",
+            "Puis radiothérapie du sein.",
+            "Radiothérapie mammaire en hypofractionné modéré recommandée."
+          ]
+        },
+        "Non": {
+          "type": "question",
+          "titre": "Quelle est la situation après impossibilité de reprise conservatrice satisfaisante ?",
+          "choix": {
+            "Marge < 2 mm sur une seule berge, extension minime ou focale": {
+              "type": "question",
+              "titre": "La patiente a-t-elle plus de 50 ans et aucune microcalcification résiduelle ?",
+              "choix": {
+                "Oui": {
+                  "type": "resultat",
+                  "titre": "Radiothérapie du sein avec boost",
+                  "recommandations": [
+                    "Radiothérapie du sein.",
+                    "Boost du lit opératoire.",
+                    "Cette option correspond à la situation : âge > 50 ans et absence de microcalcifications résiduelles."
+                  ]
+                },
+                "Non": {
+                  "type": "resultat",
+                  "titre": "Mastectomie totale simple, proposition de reconstruction mammaire immédiate",
+                  "recommandations": [
+                    "Mastectomie totale simple.",
+                    "Proposition de reconstruction mammaire immédiate."
+                  ]
+                }
+              }
+            },
+            "Marge < 2 mm étendue ou atteinte multifocale des berges ou microcalcifications suspectes résiduelles": {
+              "type": "resultat",
+              "titre": "Mastectomie totale simple ± ganglion sentinelle, proposition de reconstruction mammaire immédiate",
+              "recommandations": [
+                "Mastectomie totale simple.",
+                "Ganglion sentinelle à discuter selon la situation.",
+                "Proposition de reconstruction mammaire immédiate."
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "note_boost": [
+    "Surimpression du lit opératoire recommandée si âge < 50 ans.",
+    "Entre 50 et 70 ans, recommandée s’il existe au moins un critère parmi : comédo-nécrose extensive, haut grade nucléaire, présentation symptomatique, marge < 2 mm sans possibilité de reprise chirurgicale."
+  ]
+}
