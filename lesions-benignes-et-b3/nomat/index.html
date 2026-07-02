@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Algorithme NOMAT — SENORIF</title>
+<style>
+:root{--blue:#3F8CC9;--text:#111827;--muted:#6b7280;--border:#e5e7eb}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:white;color:var(--text);line-height:1.65}
+main{max-width:900px;margin:0 auto;padding:38px 24px 70px}
+.back{display:inline-block;margin-bottom:28px;color:var(--blue);font-weight:800;text-decoration:none}
+.content{background:white;border-top:10px solid var(--blue);border-radius:20px;box-shadow:0 10px 28px rgba(31,50,90,.08);padding:34px}
+h1{color:var(--blue);font-size:34px;font-weight:500;margin:0 0 14px}
+h2{color:var(--blue);font-size:24px;font-weight:500;margin:28px 0 14px}
+p{font-size:16px;margin:0 0 16px}
+.test-btn{display:inline-flex;align-items:center;gap:8px;margin:12px 0 22px;padding:14px 18px;border:1px solid var(--border);border-left:8px solid var(--blue);border-radius:14px;background:#f9fafb;color:var(--text);font-weight:900;cursor:pointer}
+.form-box{display:none;border:1px solid var(--border);border-radius:16px;background:#f9fafb;padding:18px;margin:8px 0 24px}
+.form-box.open{display:block}
+label{display:block;font-weight:900;margin:12px 0 6px}
+input,select{width:100%;border:1px solid var(--border);border-radius:10px;padding:10px;font-family:inherit;font-size:15px;background:white}
+.result{display:none;margin-top:18px;padding:16px;border-radius:14px;background:#eef5ff;border:1px solid #bfd7ff}
+.result.ok{background:#ecfdf5;border-color:#86efac}
+.result.warn{background:#fff7ed;border-color:#fdba74}
+.result strong{display:block;font-size:18px;margin-bottom:4px}
+.nomat-img{margin-top:10px;width:100%;height:auto;border-radius:12px;border:1px solid var(--border)}
+.note{font-size:13px;color:var(--muted)}
+@media(max-width:600px){main{padding:28px 18px 60px}.content{padding:24px}h1{font-size:28px}}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../../index.html">← Retour</a>
+<div class="content">
+<h1>Algorithme NOMAT</h1>
+<p>Outil d’aide à la décision pour les lésions B3 du sein, basé sur trois critères : âge, taille radiologique de la lésion et disparition de la cible radiologique après biopsie.</p>
+
+<button class="test-btn" type="button" onclick="toggleTest()">Faire le test</button>
+
+<div id="testBox" class="form-box">
+  <label for="age">Âge de la patiente</label>
+  <input id="age" type="number" min="35" max="90" placeholder="Exemple : 52">
+
+  <label for="taille">Taille radiologique de la lésion</label>
+  <select id="taille">
+    <option value="">Choisir…</option>
+    <option value="0">≤ 16 mm</option>
+    <option value="45">&gt; 16 mm</option>
+  </select>
+
+  <label for="disparition">Disparition de la cible radiologique après biopsie</label>
+  <select id="disparition">
+    <option value="">Choisir…</option>
+    <option value="0">Oui</option>
+    <option value="45">Non</option>
+  </select>
+
+  <button class="test-btn" type="button" onclick="calculateNomat()">Calculer</button>
+
+  <div id="result" class="result"></div>
+  <p class="note">Seuil proposé : désescalade possible si le risque estimé de cancer associé est ≤ 10 %.</p>
+</div>
+
+<img class="nomat-img" src="../../images/image-nomat.jpeg" alt="Nomogramme NOMAT">
+
+<h2>Interprétation</h2>
+<p>On additionne les points correspondant aux trois critères. Le total est converti en probabilité estimée de cancer associé. Une désescalade peut être discutée lorsque le risque estimé est inférieur ou égal à 10 %.</p>
+</div>
+</main>
+
+<script>
+function toggleTest(){
+  document.getElementById("testBox").classList.toggle("open");
+}
+
+function agePoints(age){
+  if(!age && age !== 0) return null;
+  age = Math.max(35, Math.min(90, Number(age)));
+  // Approximation linéaire du nomogramme : 35 ans = 0 point ; 85-90 ans ≈ 100 points.
+  return Math.round((age - 35) * 2);
+}
+
+function riskFromPoints(points){
+  const scale = [
+    [0,0], [20,5], [40,10], [60,15], [80,25],
+    [100,35], [120,45], [140,60], [160,70]
+  ];
+  if(points <= 0) return 0;
+  if(points >= 160) return 70;
+  for(let i=0;i<scale.length-1;i++){
+    const [p1,r1] = scale[i], [p2,r2] = scale[i+1];
+    if(points >= p1 && points <= p2){
+      const t = (points - p1) / (p2 - p1);
+      return Math.round(r1 + t * (r2 - r1));
+    }
+  }
+  return null;
+}
+
+function calculateNomat(){
+  const age = Number(document.getElementById("age").value);
+  const taille = document.getElementById("taille").value;
+  const disparition = document.getElementById("disparition").value;
+  const box = document.getElementById("result");
+
+  if(!age || taille === "" || disparition === ""){
+    box.className = "result warn";
+    box.style.display = "block";
+    box.innerHTML = "<strong>Informations manquantes</strong>Remplis les 3 champs pour calculer le score.";
+    return;
+  }
+
+  const points = agePoints(age) + Number(taille) + Number(disparition);
+  const risk = riskFromPoints(points);
+  const ok = risk <= 10;
+
+  box.className = "result " + (ok ? "ok" : "warn");
+  box.style.display = "block";
+  box.innerHTML =
+    "<strong>" + (ok ? "Désescalade possible" : "Désescalade non recommandée par ce seuil") + "</strong>" +
+    "Score : " + points + " points<br>" +
+    "Risque estimé de cancer associé : " + risk + " %<br>" +
+    "Seuil : ≤ 10 %.";
+}
+</script>
+</body>
+</html>
