@@ -1,0 +1,108 @@
+{
+  "id": "questionnaire-nomat",
+  "titre": "Algorithme NOMAT",
+  "description": "Nomogramme NOMAT pour les lésions B3 du sein : estimation du risque de cancer associé à partir de l’âge, de la taille radiologique et de la disparition de la cible radiologique.",
+  "type": "score",
+  "champs": [
+    {
+      "id": "age",
+      "label": "Âge de la patiente",
+      "type": "number",
+      "unit": "ans",
+      "min": 35,
+      "max": 90,
+      "points": {
+        "35": 0,
+        "40": 10,
+        "45": 20,
+        "50": 30,
+        "55": 40,
+        "60": 50,
+        "65": 60,
+        "70": 70,
+        "75": 80,
+        "80": 90,
+        "85": 100,
+        "90": 100
+      }
+    },
+    {
+      "id": "taille",
+      "label": "Taille radiologique de la lésion",
+      "type": "choice",
+      "options": [
+        {
+          "label": "≤ 16 mm",
+          "value": "inf_egal_16",
+          "points": 0
+        },
+        {
+          "label": "> 16 mm",
+          "value": "sup_16",
+          "points": 45
+        }
+      ]
+    },
+    {
+      "id": "disparition",
+      "label": "Disparition de la cible radiologique après biopsie",
+      "type": "choice",
+      "options": [
+        {
+          "label": "Oui",
+          "value": "oui",
+          "points": 0
+        },
+        {
+          "label": "Non",
+          "value": "non",
+          "points": 45
+        }
+      ]
+    }
+  ],
+  "conversion_risque": [
+    {
+      "points": 0,
+      "risque": 0
+    },
+    {
+      "points": 20,
+      "risque": 5
+    },
+    {
+      "points": 40,
+      "risque": 10
+    },
+    {
+      "points": 60,
+      "risque": 15
+    },
+    {
+      "points": 80,
+      "risque": 25
+    },
+    {
+      "points": 100,
+      "risque": 35
+    },
+    {
+      "points": 120,
+      "risque": 45
+    },
+    {
+      "points": 140,
+      "risque": 60
+    },
+    {
+      "points": 160,
+      "risque": 70
+    }
+  ],
+  "seuil_desescalade": {
+    "risque_max": 10,
+    "message_si_ok": "Désescalade possible : risque estimé ≤ 10 %",
+    "message_si_non": "Désescalade non recommandée par ce seuil : risque estimé > 10 %"
+  },
+  "source": "Nomogramme NOMAT fourni par l’utilisateur"
+}
